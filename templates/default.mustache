@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> shared/head}}
+  <body id="{{slug}}">
+    <section id="wrapper">
+      {{> shared/header}}	
+	  
+	    <article>
+	      <h2>{{headline}}</h2>
+        {{#contact}}
+		      <span id="contactform">
+		        {{> shared/contact_form}}
+		      </span>
+		    {{/contact}}
+		    {{#profile}}
+		      <img src="{{permalink}}katherine.jpg" class="profile">
+		    {{/profile}}
+		    {{{body}}}
+	    </article>
+	    <div class="clear"></div>
+      {{> shared/footer}}
+    </section>
+    {{> shared/nav_tracker }}
+    {{> shared/analytics }}
+  </body>
+</html>

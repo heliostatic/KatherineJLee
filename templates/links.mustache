@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> shared/head}}
+  <body id="{{slug}}">
+    <section id="wrapper" class="split">
+      {{> shared/header}}
+      <h2>{{headline}}</h2>
+	    <article>
+	      <h3>Stores</h3>
+          {{# stores }}
+            <div class="store"><a href="{{link}}"><img src="{{path}}images/{{img_name}}" alt="{{alt}}"></a><p>{{{description}}}</p>
+              <div class="clear"></div>
+      	    </div>
+          {{/ stores }}
+	    </article>
+	    <aside>
+	      <h3>Featured Elsewhere</h3>
+	      <ul>
+	      {{# features }}
+          <li><a href="{{link}}"><img src="{{path}}images/{{img_name}}" alt="{{alt}}"></a></li>
+        {{/ features }}
+        </ul>
+	    </aside>
+	    <div class="clear"></div>
+      {{> shared/footer}}
+    </section>
+    {{> shared/nav_tracker }}
+    {{> shared/analytics }}
+  </body>
+</html>

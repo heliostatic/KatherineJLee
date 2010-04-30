@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> shared/head}}
+  <body id="{{slug}}">
+    <section id="wrapper">
+      {{> shared/header}}
+    
+	    <div id="diptych-horizontal">
+	      <a href="{{store1}}"><img src="{{path}}images/store1.jpg" /></a>
+	      <a href="{{store2}}"><img src="{{path}}images/store2.jpg" /></a>
+	      <span id="left-label">Bed &amp; Table Linens</span>
+        <span id="right-label">Bags &amp; Accessories</span>
+	    </div>
+	    <div class="clear"></div>
+      {{> shared/footer}}
+    </section>
+  </body>
+  {{> shared/analytics }}
+  {{> shared/nav_tracker }}
+</html>

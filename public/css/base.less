@@ -1,0 +1,425 @@
+/* HTML resets */
+body, html, div, p, img, h1, h2, h3, h4, h5, h6, ol, ul, li { margin: 0; padding: 0; font-weight: normal; font-size: 100%; outline: none; border: none;}
+
+/* HTML5 block elements */
+header, section, article, footer, aside, nav { display: block; }
+
+
+/* Variables */
+@page_width: 940px;
+@nav_yellow: #FFD100;
+@nav_purple: #b22f9c;
+@nav_pink: #ff00d3;
+@nav_blue: #3fccc4;
+@nav_green: #0bb2aa;
+
+/* Mixins */
+.nav_hover (@color: black) {
+	background-color: @color;
+}
+.rounded_corners (@radius: 10px) {
+	-moz-border-radius: @radius;
+  -webkit-border-radius: @radius;
+  border-radius: @radius;
+}
+.transition (@time: 0.4s) {
+	-webkit-transition-property: initial; 
+	-webkit-transition-duration: @time; 
+	-webkit-transition-timing-function: ease; 
+	-webkit-transition-delay: initial;
+}
+
+/* Put your styles below here */
+#wrapper { margin: 0 auto; width: @page_width; }
+
+body { font-family: "Helvetica Neue", Helvetica, Arial, Geneva, sans-serif; }
+
+/* Make HTML 5 elements display block-level for consistent styling */
+header, nav, article, footer, address {
+	display: block;
+}
+
+header { 
+	margin-top: 5em;
+	position:relative;
+
+	#logo-text {
+/*		top:10px;
+		position:absolute;*/
+		font-size:1.5em;
+		text-transform:lowercase;
+		
+		a {
+			color:gray;
+			text-decoration:none;
+		}
+		a:hover:after, a:focus:after {
+			content: " ↩";
+/*			content: " ☺";*/
+		}
+	}
+
+	#navigation {
+/*		margin: 5em 0 0 0; */
+		margin:0;
+		text-align:right;
+		text-transform: lowercase; 
+		font-size: 1em;
+/*		li:not(:last-child):after { content: " |"; }*/
+		
+		a { 
+				color: black; 
+				text-decoration: none; 
+				display:inline-block; 
+				padding: 10px 20px;
+				.rounded_corners;
+				.transition;
+			}
+		
+		a.home:hover, a.home:focus , .home.active {
+			.nav_hover(@nav_yellow);
+		}		
+		a.Portfolio:hover, a.Portfolio:focus, .Portfolio.active { 
+			.nav_hover(@nav_blue);
+		}
+		a.Custom-Orders:hover, a.Custom-Orders:focus, .Custom-Orders.active {
+			.nav_hover(@nav_pink);
+		}
+		a.Store:hover, a.Store:focus, .Store.active {
+			.nav_hover(@nav_green);
+		}
+		a.Blog:hover, a.Blog:focus, .Blog.active {
+			.nav_hover(@nav_purple);
+		}
+		a.About:hover, a.About:focus, .About.active {
+			.nav_hover(@nav_yellow);
+		}
+		a.Contact:hover, a.Contact:focus, .Contact.active {
+			.nav_hover(@nav_pink);
+		}
+		a.Shop-Online:hover, a.Shop-Online:focus, .Shop-Online.active {
+			.nav_hover(@nav_blue);
+		}
+	}
+}
+	
+nav li { display: inline; list-style-type: none; }
+
+#breadcrumbs, footer { color: gray; font-size: 0.7em; }
+
+#breadcrumbs {
+	li:not(:last-child):after { content: " ➔";}
+	border-top: 1px solid lightgray;
+	padding-top:5px;
+	a { color: inherit; }
+}
+
+#sub-navigation{
+	font-size: 0.8em;
+	float: right; 
+	display:block;
+	margin-bottom:2em;
+	li { list-style-type:none; display: inline;}
+	li:not(:last-child):after { content: " |"; }
+	a {
+		color:black; 
+		text-decoration:none; 
+		padding:10px 5px; 
+		.rounded_corners;
+		}
+	a.active {font-weight:bold;}
+}
+
+/* Images */
+#diptych-horizontal {
+	float:left;
+	margin-bottom:2em;
+	
+	img {
+		width:(@page_width / 2) - 10px;
+	}	
+	a:first-child	 {
+		margin:0 10px 0 0;
+	}
+	a:last-child {
+		margin: 0 0 0 5px ;
+	}
+	#left-label {
+		margin:0 0 0 170px;
+	}
+	#right-label {
+		float:right;
+		margin: 0 160px 0 0;
+	}
+}
+
+#diptych-vertical {
+	float:left;
+	img {
+		width:@page_width;
+		height:350px;
+	}	
+	a:first-child	 {
+		margin:0 0 10px 0;
+	}
+	a:last-child {
+		margin: 0;
+	}
+}
+
+.profile {
+	float:right;
+	margin:0 0px 20px 20px;
+}
+
+#orders {
+	img {
+		float:right;
+		width:(@page_width / 3);
+	}
+	.orderform {
+		float:left;
+		width:((@page_width / 3) * 2) - 20px;
+	}
+}
+
+#Contact {
+	
+	h3 {
+		margin-bottom:0;
+	}
+	
+	h4 {
+		margin-top:0;
+		margin-bottom:0;
+		color:gray;
+	}
+	h4:last-of-type {
+		margin-bottom:1.25em;
+	}
+	
+	#contactform {
+		width:(@page_width / 2);
+		float:right;
+	}
+
+	p:last-of-type {
+		margin-bottom:2em;
+	}
+}
+
+#features {
+	img { margin-right:10px;}
+}
+
+.split article { 
+	width: @page_width - 200px - 50px; 
+	float: left; 
+	border-right: 1px solid lightgray;
+	margin-right: 14px; 
+	padding-right: 15px;
+	img {
+		float:left;
+		margin-right:1em;
+		margin-bottom:1em;
+	}
+}
+.split aside { 
+	width: 200px; 
+	float: right;
+	ul {
+		float:right;
+	}
+	li {
+		list-style-type: none;
+	}
+}
+
+nav, footer { margin: 1em 0; }
+
+/* Typesetting */
+h1, h2, h3, h4, h5, h6 { margin: 1.25em 0; }
+
+h1 { font-size: 2em; }
+h2 { font-size: 1.6em; }
+h3 { font-size: 1.4em; }
+h4 { font-size: 1.2em; }
+h5 { font-size: 1em; }
+h6 { font-size: 0.9em; }
+
+a { color: #256ec4; }
+p { font-size: 0.8em; line-height: 140%; margin-bottom: 10px; color: #333;}
+
+/* Font tweaking */
+h3 { color:black; margin-top:0;}
+
+.clear{ clear: both; }
+
+/* External Styles */
+
+#awesome-button {
+	text-align:center;
+	
+	.awesome, .awesome:visited {
+		display: inline-block; 
+		padding: 5px 10px 6px; 
+		color: #fff; 
+		text-decoration: none;
+		-moz-border-radius: 5px; 
+		-webkit-border-radius: 5px;
+		-moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+		-webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+		text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+		border-bottom: 1px solid rgba(0,0,0,0.25);
+		position: relative;
+		cursor: pointer;
+	}
+
+		.awesome:hover							{ background-color: #111; color: #fff; }
+		.awesome:active							{ top: 1px; }
+		.small.awesome, .small.awesome:visited 			{ font-size: 11px; padding: ; }
+		.awesome, .awesome:visited,
+		.medium.awesome, .medium.awesome:visited 		{ font-size: 13px; font-weight: bold; line-height: 1; text-shadow: 0 -1px 1px rgba(0,0,0,0.25); }
+		.large.awesome, .large.awesome:visited 			{ font-size: 14px; padding: 8px 14px 9px; }
+		.portfolio-colored.awesome, .portfolio-colored.awesome:visited { background-color: @nav_blue;}
+		.portfolio-colored.awesome:hover, .portfolio-colored.awesome:focus {background-color: @nav_blue - #6f6557;}
+}
+
+/*
+ * jQuery Nivo Slider v1.9
+ * http://nivo.dev7studios.com
+ *
+ * Copyright 2010, Gilbert Pellegrom
+ * Free to use and abuse under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ * 
+ * March 2010
+ */
+ 
+ 
+/* The Nivo Slider styles */
+.nivoSlider {
+	position:relative;
+}
+.nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+/* If an image is wrapped in a link */
+.nivoSlider a.nivo-imageLink {
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	border:0;
+	padding:0;
+	margin:0;
+	z-index:60;
+	display:none;
+}
+/* The slices in the Slider */
+.nivo-slice {
+	display:block;
+	position:absolute;
+	z-index:50;
+	height:100%;
+}
+/* Caption styles */
+.nivo-caption {
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	background:#000;
+	color:#fff;
+	opacity:0.8; /* Overridden by captionOpacity setting */
+	width:100%;
+	z-index:89;
+}
+.nivo-caption p {
+	padding:5px;
+	margin:0;
+}
+/* Direction nav styles (e.g. Next & Prev) */
+.nivo-directionNav a {
+	position:absolute;
+	top:45%;
+	z-index:99;
+	cursor:pointer;
+}
+.nivo-prevNav {
+	left:0px;
+}
+.nivo-nextNav {
+	right:0px;
+}
+/* Control nav styles (e.g. 1,2,3...) */
+.nivo-controlNav a {
+	position:relative;
+	z-index:99;
+	cursor:pointer;
+}
+.nivo-controlNav a.active {
+	font-weight:bold;
+}
+/*
+ * Note: Include the nivo-slider.css file that comes
+ * with the main download before including this file.
+ */
+
+#portfolio_slider, #fader {
+	position:relative;
+	//See the "style-pack" below for image
+	background:url(loader.gif) no-repeat 50% 50%;
+	min-height:629px;
+	/*margin:30px 30px 60px 30px;
+		-moz-box-shadow:0px 0px 10px #333;
+		-webkit-box-shadow:0px 0px 10px #333;
+		box-shadow:0px 0px 10px #333;*/
+}
+#portfolio_slider img, #fader img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+#portfolio_slider a {
+	border:0;
+}
+
+.nivo-controlNav {
+	position:absolute;
+	left:45%;
+/*	bottom:-30px;*/
+	bottom:-15px;
+}
+.nivo-controlNav a {
+	display:block;
+	width:10px;
+	height:10px;
+	background:url(bullets.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+	margin-right:3px;
+	float:left;
+}
+.nivo-controlNav a.active {
+	background-position:-10px 0;
+}
+
+.nivo-directionNav a {
+	display:block;
+	width:32px;
+	height:34px;
+	background:url(arrows.png) no-repeat;
+	text-indent:-9999px;
+	border:0;
+}
+a.nivo-nextNav {
+	background-position:-32px 0;
+	right:10px;
+}
+a.nivo-prevNav {
+	left:10px;
+}

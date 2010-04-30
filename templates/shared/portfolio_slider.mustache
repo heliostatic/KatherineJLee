@@ -1,0 +1,37 @@
+<script type="text/javascript">
+var myFile = document.location.toString();
+if (myFile.match('#portfolio')) { // the URL contains an anchor
+  // click the navigation item corresponding to the anchor
+	  $("#preroll").hide(function() {
+	    $("#portfolio_slider").show(function() {
+	      $('#portfolio_slider').nivoSlider({
+       		effect:'fade',
+       		animSpeed:500,
+       		pauseTime:3000,
+       		directionNav:true, //Next & Prev
+       		directionNavHide:true, //Only show on hover
+       		keyboardNav:true,
+       		controlNav:true, //1,2,3...
+       		pauseOnHover:true, //Stop animation while hovering
+       	});
+	    });
+	  });
+}
+$(function(){
+  $('a.awesome').click(function(){
+     $('#portfolio_slider').toggle("slow");
+     $('#preroll').toggle("slow", function() {
+       $('#portfolio_slider').nivoSlider({
+     		effect:'fade',
+     		animSpeed:500,
+     		pauseTime:3000,
+     		directionNav:true, //Next & Prev
+     		directionNavHide:true, //Only show on hover
+     		keyboardNav:true,
+     		controlNav:true, //1,2,3...
+     		pauseOnHover:true, //Stop animation while hovering
+     	});
+     }); 
+  });
+});
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> shared/head}}
+  <body id="{{slug}}">
+    <section id="wrapper">
+      {{> shared/header}}	
+      {{> shared/portfolio_nav_sib}}
+	    <div class="clear"></div>
+	    <article id="preroll">
+	      {{{body}}}
+	      <div id="awesome-button">
+	      <a class="medium portfolio-colored awesome" href="#portfolio">Start Slideshow &raquo;</a>
+	      </div>
+	    </article>
+      <div id="portfolio_slider">	  
+          {{#images}}
+            <img src="{{path}}" alt="{{name}}" />
+          {{/images}}
+      </div>    
+      <div class="clear"></div>
+      {{> shared/footer}}
+    </section>
+    {{> shared/analytics }}
+    {{> shared/nav_tracker }}
+    {{> shared/portfolio_slider }}
+  </body>
+</html>

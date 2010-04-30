@@ -1,0 +1,9 @@
+<nav id="navigation">
+  <ol>
+  <li><a href="/" class="home">Home</a></li>
+  {{# navigation}}
+    <li><a href="{{permalink}}" title="{{slug}}" class="{{slug}}">{{name}}</a></li>
+  {{/ navigation}}
+  <li><a href="http://blog.katherinejlee.com" title="Blog" class="Blog">Blog</a></li>
+  </ol>
+</nav>

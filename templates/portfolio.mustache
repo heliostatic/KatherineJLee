@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> shared/head}}
+  <body id="{{slug}}">
+    <section id="wrapper">
+      {{> shared/header}}
+      <div class="clear"></div>
+	    <div id="diptych-horizontal">  
+	    {{#children}}
+        <a href="{{permalink}}"><img src="{{permalink}}season.jpg" /></a>
+      {{/children}}
+        <span id="left-label">Fall/Winter 2009</span>
+        <span id="right-label">Spring/Summer 2010</span>
+	    </div>  
+      <div class="clear"></div>
+      {{> shared/footer}}
+    </section>
+  </body>
+  {{> shared/analytics }}
+  {{> shared/nav_tracker }}
+</html>

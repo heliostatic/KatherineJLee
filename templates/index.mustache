@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{> shared/head}}
+  <body id="{{slug}}">
+    <section id="wrapper">
+      {{> shared/header}}	
+	      
+      <div id="banner">
+        <div id="fader">	  
+          {{#banner}}
+            <img src="{{path}}" alt="{{name}}" />
+          {{/banner}}
+        </div>
+      </div>    
+      {{> shared/footer}}
+    </section>
+    {{> shared/analytics }}
+    {{> shared/nav_tracker }}
+    {{> shared/index_script }}
+  </body>
+</html>
