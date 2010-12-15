@@ -7,15 +7,18 @@
 	  
 	    <article>
 	      <h2>{{headline}}</h2>
-        {{#contact}}
+		    {{#profile}}
+		      <img src="{{permalink}}katherine.jpg" class="profile">
+		    {{/profile}}
+				{{#shop}}
+					{{{etsyembed}}}
+				{{/shop}}
+		    {{{body}}}
+		    {{#contact}}
 		      <span id="contactform">
 		        {{> shared/contact_form}}
 		      </span>
 		    {{/contact}}
-		    {{#profile}}
-		      <img src="{{permalink}}katherine.jpg" class="profile">
-		    {{/profile}}
-		    {{{body}}}
 	    </article>
 	    <div class="clear"></div>
       {{> shared/footer}}
